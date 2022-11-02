@@ -1,0 +1,6 @@
+//Pulling table data using a sub query
+
+Select ID,
+  (Select "ABCG" FROM "PROJECT NAMES" X where x."ABCG" = a."PROJECT_NAME")"PROJECT_NAME",
+  name, description, due_date, created_by, updated_by
+ From "PROJECT_NAME" a
