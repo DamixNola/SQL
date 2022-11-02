@@ -1,9 +1,0 @@
-//Pulling table data using a sub query
-
-Select ID,
-  (Select "Bill" 
-  From "Bill_Tracker" X 
-  where i."id" = b."bill_id") 
-  "2021_Expense",
-  name, description, due_date, created_by, updated_by
- From "2022_Expense" b

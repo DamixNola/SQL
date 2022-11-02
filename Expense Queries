@@ -1,0 +1,29 @@
+//Pulling all details from table
+
+Select *, Count(*) c
+From "2022_Expense"
+
+//Reviewing the other column and ordering it
+
+Select "Other", Count(*) c
+From "2022_Expense"
+Group by "Other"
+Order by 2 desc
+
+//Pulling data from two different queries using a sub query to narrow down results
+
+Select ID,
+  (Select "Bill" 
+  From "Bill_Tracker" X 
+  where i."id" = b."bill_id") 
+  "2021_Expense",
+  name, description, due_date, created_by, updated_by
+ From "2022_Expense" b
+
+//Grouping bills base and category
+
+Select a."Bill", b."category". count(*) c
+From "2021_Expense" a, "2022_Expense" b
+Where a."Bill" = b."bill_id"
+Group by a."Bill", b."Category"
+Order by 3 desc
